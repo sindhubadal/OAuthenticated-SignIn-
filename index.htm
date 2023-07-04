@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Sign-In Redirect</title>
+</head>
+<body>
+  <button onclick="redirectToGoogleSignIn()">Sign in with Google</button>
+
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function redirectToGoogleSignIn() {
+      var clientId = "802594410695-ei56gjqe1ue04k935nbg6edkuoe31m0a.apps.googleusercontent.com";
+      var redirectUri = "http://127.0.0.1:5500/profile.html";
+      var scope = "https://www.googleapis.com/auth/userinfo.profile";
+    
+
+      var authUrl = "https://accounts.google.com/o/oauth2/auth" +
+        "?response_type=code" +
+        "&client_id=" + encodeURIComponent(clientId) +
+        "&redirect_uri=" + encodeURIComponent(redirectUri) +
+        "&scope=" + encodeURIComponent(scope);
+
+      window.location.href = authUrl;
+    }
+  </script>
+</body>
+</html>
